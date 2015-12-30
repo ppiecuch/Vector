@@ -1,4 +1,4 @@
-#ifdef __APPLE__
+#if defined(__APPLE__)
 #    include "TargetConditionals.h"
 #    if TARGET_OS_IPHONE
 #        include <OpenGLES/ES2/gl.h>

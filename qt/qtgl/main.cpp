@@ -165,7 +165,7 @@ int main( int argc, char ** argv )
     app->setWindowIcon(appIcon);
 
     QPoint pos = QApplication::desktop()->availableGeometry().topLeft() + QPoint(200, 200);
-    app->resize(QSize(200, 200));
+    app->resize(QSize(640, 480));
     app->move(pos);
     app->show();
 

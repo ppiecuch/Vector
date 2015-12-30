@@ -538,8 +538,8 @@ int vector_display_end_draw(vector_display_t *self) {
 
     float t = effective_thickness(self);
     int i;
-    int  first_last_same = abs(self->pending_points[0].x - self->pending_points[self->pending_npoints-1].x) < 0.1 &&
-                           abs(self->pending_points[0].y - self->pending_points[self->pending_npoints-1].y) < 0.1;
+    int  first_last_same = fabs(self->pending_points[0].x - self->pending_points[self->pending_npoints-1].x) < 0.1 &&
+                           fabs(self->pending_points[0].y - self->pending_points[self->pending_npoints-1].y) < 0.1;
 
     // from the list of points, build a list of lines
     int     nlines = self->pending_npoints-1;
