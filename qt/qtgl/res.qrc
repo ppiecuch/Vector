@@ -1,7 +1,7 @@
 <RCC>
-  <qresource prefix="/res">
-  <file>res/fonts/fontawesome.ttf</file>
-  <file>res/fonts/fps-solid-icons.ttf</file>
-  <file>res/fonts/pe-media-icons.ttf</file>
+  <qresource>
+  <file>res/icons/icon-32.png</file>
+  <file>res/icons/icon-57.png</file>
+  <file>res/icons/icon-128.png</file>
   </qresource>
 </RCC>
