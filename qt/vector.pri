@@ -1,14 +1,14 @@
 SOURCES += \
-	$$PWD/../Vector/vector_display_utils.c \
-	$$PWD/../Vector/vector_display.c \
-	$$PWD/../Vector/vector_font_simplex.c \
-	$$PWD/../Vector/vector_shapes.c
+	$$PWD/../vector/vector_display_utils.c \
+	$$PWD/../vector/vector_display.c \
+	$$PWD/../vector/vector_font_simplex.c \
+	$$PWD/../vector/vector_shapes.c
 
 HEADERS += \
-	$$PWD/../Vector/vector_display_glinc.h \
-	$$PWD/../Vector/vector_display_utils.h \
-	$$PWD/../Vector/vector_display.h \
-	$$PWD/../Vector/vector_font_simplex.h \
-	$$PWD/../Vector/vector_shapes.h
+	$$PWD/../vector/vector_display_glinc.h \
+	$$PWD/../vector/vector_display_utils.h \
+	$$PWD/../vector/vector_display.h \
+	$$PWD/../vector/vector_font_simplex.h \
+	$$PWD/../vector/vector_shapes.h
 
-INCLUDEPATH += $$PWD/../Vector
+INCLUDEPATH += $$PWD/../vector

@@ -12,7 +12,7 @@ class VectorTest
     float cubeRotationAngle;
 
 public:
-	void draw();
+	void draw(int t = 0);
 	void prepare(int w, int h);
 	void reshape(int w, int h);
 };
