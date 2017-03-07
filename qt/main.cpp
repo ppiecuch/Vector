@@ -122,7 +122,7 @@ public:
 	, m_context(0)
 	, m_device(0)
 	, m_done(false)
-	, test_nr(3) {
+	, test_nr(4) {
 		setSurfaceType(QWindow::OpenGLSurface);
 	}
 	~Window() { delete m_device; }

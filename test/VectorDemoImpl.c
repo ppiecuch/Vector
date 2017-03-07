@@ -698,7 +698,7 @@ draw_test_pattern()
 	for(int i = 1 ; i < 63 ; i += 4)
 	{
 		moveto(1600, 2048 + i * 8);
-		vex_append(1900, 2048 + i * 8, i); 
+		brightto(1900, 2048 + i * 8, i); 
 	}
 
 	// draw the sunburst pattern in the corner
@@ -708,9 +708,9 @@ draw_test_pattern()
 		if (i & 1)
 		{
 			moveto(1024,j);
-			vex_append(0,0, i * 7);
+			brightto(0,0, i * 7);
 		} else {
-			vex_append(1024,j, i * 7);
+			brightto(1024,j, i * 7);
 		}
 	}
 
@@ -720,9 +720,9 @@ draw_test_pattern()
 		if (i & 1)
 		{
 			moveto(j,1024);
-			vex_append(0,0, i * 7);
+			brightto(0,0, i * 7);
 		} else {
-			vex_append(j,1024, i * 7);
+			brightto(j,1024, i * 7);
 		}
 	}
 
@@ -963,8 +963,11 @@ scopeclock_digital()
 void
 alphabet_test()
 {
+#ifdef CONFIG_FONT_HERSHEY
 	int size = 13;   // hershey
-	//int size = 17; // asteroids
+#else
+	int size = 17; // asteroids
+#endif
 	draw_string("abcdefghij", 0, 1800, size);
 	draw_string("klmnopqrst", 0, 1400, size);
 	draw_string("uvwxyz0123", 0, 1000, size);
@@ -979,5 +982,6 @@ scopeclock(int t)
 		case 0: scopeclock_digital(); break;
 		case 1: scopeclock_analog(); break;
 		case 2: alphabet_test(); break;
+		case 3: draw_test_pattern(); break;
 	}
 }

@@ -80,16 +80,19 @@ VectorTestImpl_Draw(int t)
 
 	vector_display_set_color(display, 1.0f, 1.0f, 1.0f);
 
-	if (t%4 == 3)
+	if (t%5 == 4)
 		resize(2048, 1536);
+	else if (t%5 == 3)
+		resize(4096, 2048);
 	else
 		resize(2048, 2048);
 
-	switch (t%4) {
-		case 0: scopeclock(0); break;
-		case 1: scopeclock(1); break;
-		case 2: scopeclock(2); break;
-		case 3: {
+	switch (t%5) {
+		case 0:
+		case 1:
+		case 2:
+		case 3: scopeclock(t%5); break;
+		case 4: {
 		    char buf[1024];
 		    sprintf(buf, "1234567890    size: %dx%d ", dwidth, dheight);
 		
