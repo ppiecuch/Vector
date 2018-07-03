@@ -30,7 +30,7 @@ typedef struct vector_display vector_display_t;
 //
 // Create a new vector display object.
 //
-int vector_display_new(vector_display_t **out_self, double width, double height);
+int vector_display_new(vector_display_t **out_self, double width, double height, double scale);
 
 //
 // Delete a vector display object.

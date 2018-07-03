@@ -13,6 +13,6 @@ class VectorTest
 
 public:
 	void draw(int t = 0);
-	void prepare(int w, int h);
-	void reshape(int w, int h);
+	void prepare(int w, int h, float sc);
+	void reshape(int w, int h, float sc);
 };

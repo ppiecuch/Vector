@@ -67,7 +67,7 @@ struct vector_display {
     GLuint fb_glow1;            // framebuffer for glow1
     GLuint fb_glow1_texid;      // texture for blur
 
-    double width, height;
+    double width, height, pixel_scale;
     double glow_width, glow_height;
 
     int steps;
@@ -122,7 +122,7 @@ static double effective_thickness(vector_display_t *self) {
     }
 }
 
-static int vector_display_init(vector_display_t *self, double width, double height) {
+static int vector_display_init(vector_display_t *self, double width, double height, double scale) {
     self->steps = VECTOR_DISPLAY_DEFAULT_DECAY_STEPS;
     self->buffers = (GLuint*)calloc(sizeof(GLuint), self->steps);
     self->buffernpoints = (GLuint*)calloc(sizeof(GLuint), self->steps);
@@ -137,6 +137,7 @@ static int vector_display_init(vector_display_t *self, double width, double heig
     self->r = self->g = self->b = self->a = 1.0f;
     self->width       = width;
     self->height      = height;
+    self->pixel_scale = scale;
     self->glow_width  = width  / 3.0;
     self->glow_height = height / 3.0;
     self->initial_decay = VECTOR_DISPLAY_DEFAULT_INITIAL_DECAY;
@@ -157,10 +158,10 @@ int vector_display_set_transform(vector_display_t *self, double offset_x, double
     return 0;
 }
 
-int vector_display_new(vector_display_t **out_self, double width, double height) {
+int vector_display_new(vector_display_t **out_self, double width, double height, double scale) {
     vector_display_t *self = (vector_display_t*)calloc(sizeof(vector_display_t), 1);
     if (self == NULL) return -1;
-    vector_display_init(self, width, height);
+    vector_display_init(self, width, height, scale);
     *out_self = self;
     return 0;
 }
@@ -1018,7 +1019,7 @@ int vector_display_update(vector_display_t *self) {
     // render scene + glow1 to the screen
     //
     glBindFramebuffer(GL_FRAMEBUFFER, drawbuffer);
-    glViewport(0, 0, self->width, self->height);
+    glViewport(0, 0, self->width*self->pixel_scale, self->height*self->pixel_scale);
 
     // clear the screen
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);

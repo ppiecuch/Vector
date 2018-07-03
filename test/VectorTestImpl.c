@@ -160,10 +160,10 @@ VectorTestImpl_Draw(int t)
 }
 
 void
-VectorTestImpl_Init(int w, int h)
+VectorTestImpl_Init(int w, int h, float sc)
 {
     int rc;
-    rc = vector_display_new(&display, w, h);
+    rc = vector_display_new(&display, w, h, sc);
     if (rc != 0) {
         printf("Failed to create vector display: rc=%d", rc);
         exit(1);

@@ -147,13 +147,13 @@ public:
 		qDebug() << " OpenGL Version:" << (const char*)glGetString(GL_VERSION);
 		qDebug() << " GLSL Version:" << (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION);
 		setTitle((const char*)glGetString(GL_RENDERER));
-		test.prepare(width(), height());
+		test.prepare(width(), height(), devicePixelRatio());
 		startTimer(0);
 	}
 	void update() { renderLater(); }
 	void reshape() {
 		const int w = width(), h = height();
-		test.reshape(w, h);
+		test.reshape(w, h, devicePixelRatio());
 	}
 	void render() {
 		if (!m_device) m_device = new QOpenGLPaintDevice;

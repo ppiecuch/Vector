@@ -6,8 +6,8 @@ extern "C" {
 #endif
 
 void VectorTestImpl_Draw(int t);
-void VectorTestImpl_Init(int w, int h);
-void VectorTestImpl_Resize(int w, int h);
+void VectorTestImpl_Init(int w, int h, float sc);
+void VectorTestImpl_Resize(int w, int h, float sc);
 void VectorTestImpl_Destroy();
 
 #ifdef __cplusplus

@@ -30,13 +30,12 @@ void VectorTest::draw(int t)
 	VectorTestImpl_Draw(t);
 }
 
-void VectorTest::prepare(int w, int h)
+void VectorTest::prepare(int w, int h, float sc)
 {
-    VectorTestImpl_Init(w, h);
-    	
+    VectorTestImpl_Init(w, h, sc);
 }
 
-void VectorTest::reshape(int w, int h)
+void VectorTest::reshape(int w, int h, float sc)
 {
-    VectorTestImpl_Resize(w, h);
+    VectorTestImpl_Resize(w, h, sc);
 }
